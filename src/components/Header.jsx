@@ -1,11 +1,18 @@
 import React from "react";
-import { FaBell } from "react-icons/fa"; // Using react-icons for the bell
-import adminLogo from "/images/admin.jpg"; // Assuming the image path
+import { FaBell } from "react-icons/fa";
+import { MdMenu } from "react-icons/md"; // Import menu icon
+import adminLogo from "/images/admin.jpg";
 
-const Header = () => {
+const Header = ({ toggleSidebar }) => {
   return (
-    <header className="flex justify-end items-center bg-white p-4 shadow-sm">
-      <div className="flex items-center space-x-6">
+    <header className="flex justify-between items-center bg-white p-4 shadow-sm">
+      {/* Sidebar toggle button for mobile and tablet */}
+      <button onClick={toggleSidebar} className="text-gray-700 lg:hidden">
+        <MdMenu size={24} />
+      </button>
+
+      {/* Right-side items with auto margin on larger screens */}
+      <div className="flex items-center space-x-6 ml-auto">
         {/* Notification Bell */}
         <button className="relative">
           <FaBell className="text-2xl" />
